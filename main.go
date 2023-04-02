@@ -89,7 +89,9 @@ func OnMessageCreate(m *gateway.MessageCreateEvent) {
 
 	// Find the previous message that contains "A wild pokémon has appeared!"
 	var lastMsg *discord.Message
-	for _, msg := range msgs {
+	// for _, msg := range msgs {
+	for i := len(msgs) - 1; i >= 0; i-- {
+		msg := msgs[i]
 		if len(msg.Embeds) == 0 {
 			continue
 		}
